@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Data;
+using Blazorise;
+using Blazorise.Bootstrap;
+using Blazorise.Icons.FontAwesome;
 
 namespace WebApplication1
 {
@@ -29,6 +32,13 @@ namespace WebApplication1
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services
+                .AddBlazorise(options =>
+                {
+                    options.ChangeTextOnKeyPress = true; // optional
+                })
+                .AddBootstrapProviders()
+                .AddFontAwesomeIcons();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
